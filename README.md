@@ -90,13 +90,13 @@ It's possible to use a docker image for building. This way you don't need anythi
 
 ```
 # Build docker image (only needed once)
-docker build . -t sdcafiineplugin-builder
+docker build . -t sdcafiine_plusplugin-builder
 
 # make 
-docker run -it --rm -v ${PWD}:/project sdcafiineplugin-builder make
+docker run -it --rm -v ${PWD}:/project sdcafiine_plusplugin-builder make
 
 # make clean
-docker run -it --rm -v ${PWD}:/project sdcafiineplugin-builder make clean
+docker run -it --rm -v ${PWD}:/project sdcafiine_plusplugin-builder make clean
 ```
 
 ## Format the code via docker
