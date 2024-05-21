@@ -44,7 +44,7 @@ bool ScreenInit() {
             screenBuffer_1 = nullptr;
         }
         DEBUG_FUNCTION_LINE_ERR("Failed to allocate screenBuffer");
-        OSFatal("SDCafiine plugin: Failed to allocate screenBuffer.");
+        OSFatal("SDCafiine Plus plugin: Failed to allocate screenBuffer.");
         return false;
     }
     OSScreenSetBufferEx(SCREEN_TV, (void *) screenBuffer_0);
@@ -90,8 +90,8 @@ void HandleMultiModPacks(uint64_t titleID) {
 
     std::map<std::string, std::string> mounting_points;
 
-    const std::string modTitleIDPath    = std::string("fs:/vol/external01/wiiu/sdcafiine/").append(TitleIDString);
-    const std::string modTitleIDPathOld = std::string("fs:/vol/external01/sdcafiine/").append(TitleIDString);
+    const std::string modTitleIDPath    = std::string("fs:/vol/external01/wiiu/sdcafiine_plus/").append(TitleIDString);
+    const std::string modTitleIDPathOld = std::string("fs:/vol/external01/wiiu/sdcafiine/").append(TitleIDString);
     DirList modTitleDirList(modTitleIDPath, nullptr, DirList::Dirs);
 
     modTitleDirList.SortList();
@@ -112,15 +112,15 @@ void HandleMultiModPacks(uint64_t titleID) {
         DIR *dir = opendir(modTitleIDPathOld.c_str());
         if (dir) {
             if (!ScreenInit()) {
-                OSFatal("SDCafiine plugin: Please migrate sd:/sdcafiine to sd:/wiiu/sdcafiine.");
+                OSFatal("SDCafiine Plus plugin: Please migrate sd:/wiiu/sdcafiine to sd:/wiiu/sdcafiine_plus.");
             }
             OSScreenClearBufferEx(SCREEN_TV, 0);
             OSScreenClearBufferEx(SCREEN_DRC, 0);
-            console_print_pos(-2, -1, "SDCafiine plugin " VERSION_FULL);
-            console_print_pos(-2, 2, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-            console_print_pos(-2, 3, "!!!         OLD DIRECTORY STRUCTURE DETECTED.           !!!");
-            console_print_pos(-2, 4, "!!! Please migrate sd:/sdcafiine to sd:/wiiu/sdcafiine. !!!");
-            console_print_pos(-2, 5, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console_print_pos(-2, -1, "SDCafiine Plus plugin " VERSION_FULL);
+            console_print_pos(-2, 2, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console_print_pos(-2, 3, "!!!              OLD DIRECTORY STRUCTURE DETECTED.                !!!");
+            console_print_pos(-2, 4, "!!! Please migrate sd:/wiiu/sdcafiine to sd:/wiiu/sdcafiine_plus. !!!");
+            console_print_pos(-2, 5, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             console_print_pos(-2, 7, "Loading game without mods");
             closedir(dir);
 
@@ -198,7 +198,7 @@ void HandleMultiModPacks(uint64_t titleID) {
             if (initScreen) {
                 OSScreenClearBufferEx(SCREEN_TV, 0);
                 OSScreenClearBufferEx(SCREEN_DRC, 0);
-                console_print_pos(x_offset, -1, "SDCafiine plugin " VERSION_FULL);
+                console_print_pos(x_offset, -1, "SDCafiine Plus plugin " VERSION_FULL);
                 console_print_pos(x_offset, 1, "Preparing modpack \"%s\"...", modTitlePath.begin()->first.c_str());
                 console_print_pos(x_offset, 3, "Press MINUS to open menu");
                 // Flip buffers
@@ -220,7 +220,7 @@ void HandleMultiModPacks(uint64_t titleID) {
                 OSScreenClearBufferEx(SCREEN_TV, 0);
                 OSScreenClearBufferEx(SCREEN_DRC, 0);
 
-                console_print_pos(x_offset, -1, "SDCafiine plugin " VERSION_FULL);
+                console_print_pos(x_offset, -1, "SDCafiine Plus plugin " VERSION_FULL);
                 console_print_pos(x_offset, 1, "Save settings...");
 
                 // Flip buffers
@@ -264,7 +264,7 @@ void HandleMultiModPacks(uint64_t titleID) {
             if (initScreen) {
                 OSScreenClearBufferEx(SCREEN_TV, 0);
                 OSScreenClearBufferEx(SCREEN_DRC, 0);
-                console_print_pos(x_offset, -1, "SDCafiine plugin " VERSION_FULL);
+                console_print_pos(x_offset, -1, "SDCafiine Plus plugin " VERSION_FULL);
                 console_print_pos(x_offset, 1, "Press A to launch a modpack");
                 console_print_pos(x_offset, 2, "Press B to launch without a modpack");
                 if (modTitlePath.size() == 1) {
@@ -325,13 +325,13 @@ bool ReplaceContent(const std::string &basePath, const std::string &modpack) {
         auto screenWasAllocated = screenBuffer_0 != nullptr;
 
         if (!ScreenInit()) {
-            OSFatal("SDCafiine plugin: Failed to apply the modpack.");
+            OSFatal("SDCafiine Plus plugin: Failed to apply the modpack.");
         }
         uint32_t sleepTime = 3000;
         DEBUG_FUNCTION_LINE_ERR("Failed to apply the modpack. Starting without mods.");
         OSScreenClearBufferEx(SCREEN_TV, 0);
         OSScreenClearBufferEx(SCREEN_DRC, 0);
-        console_print_pos(-2, -1, "SDCafiine plugin " VERSION VERSION_EXTRA);
+        console_print_pos(-2, -1, "SDCafiine Plus plugin " VERSION VERSION_EXTRA);
         console_print_pos(-2, 1, "Failed to apply the modpack. Starting without mods...");
         bool folderExists = false;
         struct stat st {};
@@ -382,7 +382,7 @@ bool ReplaceContent(const std::string &basePath, const std::string &modpack) {
 }
 
 bool ReplaceContentInternal(const std::string &basePath, const std::string &subdir, CRLayerHandle *layerHandle,FSLayerType layerType) {
-    std::string layerName = "SDCafiine /vol/" + subdir;
+    std::string layerName = "SDCafiine Plus /vol/" + subdir;
     std::string fullPath  = basePath + "/" + subdir;
     if(layerType == FS_LAYER_TYPE_SAVE_REPLACE){
         nn::act::Initialize();

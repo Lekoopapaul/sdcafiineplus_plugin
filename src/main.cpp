@@ -7,14 +7,14 @@
 #include <wups.h>
 #include <wups/config/WUPSConfigItemBoolean.h>
 
-WUPS_PLUGIN_NAME("SDCafiine");
-WUPS_PLUGIN_DESCRIPTION("SDCafiine");
+WUPS_PLUGIN_NAME("SDCafiine Plus");
+WUPS_PLUGIN_DESCRIPTION("SDCafiine with Save Redirection");
 WUPS_PLUGIN_VERSION(VERSION_FULL);
-WUPS_PLUGIN_AUTHOR("Maschell");
+WUPS_PLUGIN_AUTHOR("Maschell & Lekoopapaul");
 WUPS_PLUGIN_LICENSE("GPL");
 
 WUPS_USE_WUT_DEVOPTAB();
-WUPS_USE_STORAGE("sdcafiine"); // Unique id for the storage api
+WUPS_USE_STORAGE("sdcafiine_plus"); // Unique id for the storage api
 
 INITIALIZE_PLUGIN() {
     ContentRedirectionStatus error;
@@ -32,10 +32,10 @@ INITIALIZE_PLUGIN() {
 /* Entry point */
 ON_APPLICATION_START() {
     initLogging();
-    if (gSDCafiineEnabled) {
+    if (gSDCafiinePlusEnabled) {
         HandleMultiModPacks(OSGetTitleID());
     } else {
-        DEBUG_FUNCTION_LINE("SDCafiine is disabled");
+        DEBUG_FUNCTION_LINE("SDCafiine Plus is disabled");
     }
 }
 
