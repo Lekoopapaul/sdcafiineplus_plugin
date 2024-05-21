@@ -1,4 +1,4 @@
-#include "input.h"
+#include "utils/input.h"
 
 uint32_t remapWiiMoteButtons(uint32_t buttons) {
     uint32_t conv_buttons = 0;

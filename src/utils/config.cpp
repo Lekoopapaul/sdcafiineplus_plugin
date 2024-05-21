@@ -1,6 +1,6 @@
-#include "config.h"
+#include "utils/config.h"
 #include "globals.h"
-#include "logger.h"
+#include "utils/logger.h"
 #include <wups/config.h>
 #include <wups/config/WUPSConfigItemBoolean.h>
 #include <wups/config_api.h>

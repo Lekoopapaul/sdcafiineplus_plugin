@@ -48,5 +48,9 @@ ON_APPLICATION_ENDS() {
         ContentRedirection_RemoveFSLayer(gAocLayerHandle);
         gAocLayerHandle = 0;
     }
+    if (gSaveLayerHandle != 0) {
+        ContentRedirection_RemoveFSLayer(gSaveLayerHandle);
+        gSaveLayerHandle = 0;
+    }
     deinitLogging();
 }
