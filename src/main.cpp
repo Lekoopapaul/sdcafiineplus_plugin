@@ -27,6 +27,7 @@ INITIALIZE_PLUGIN() {
 
     gContentLayerHandle = 0;
     gAocLayerHandle     = 0;
+    gSaveLayerHandle    = 0;
 }
 
 /* Entry point */

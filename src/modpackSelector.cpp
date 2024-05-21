@@ -394,9 +394,7 @@ bool ReplaceContentInternal(const std::string &basePath, const std::string &subd
 
         mkdir(fullPath.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
         mkdir((fullPath+"/"+"common").c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-        mkdir((fullPath+"/"+user).c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-
-        free(user);
+        mkdir((fullPath+"/"+user).c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);  
     }
     struct stat st {};
     if (stat(fullPath.c_str(), &st) < 0) {

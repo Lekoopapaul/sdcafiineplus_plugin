@@ -1,8 +1,10 @@
-[![CI-Release](https://github.com/wiiu-env/sdcafiine_plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/wiiu-env/sdcafiine_plugin/actions/workflows/ci.yml)
+# SDCafiine Plus Plugin
 
-# SDCafiine Plugin
+## What is SDCafiine Plus
 
-## What is SDCafiine
+It's a fork from the [SDCafiine Plugin](https://github.com/wiiu-env/sdcafiine_plugin) from Maschell which adds diffrent save data for each modpack. The save data will be saved in the `save` directory which is in the modpack directory.
+
+### Original Description
 The main feature of this plugin is the **on-the-fly replacing of files**, which can be used to load modified content from external media (**SD**). It hooks into the file system functions of the Wii U. Whenever a file is accessed, SDCafiine checks if a (modified) version is present on the SD card, and redirect the file operations if needed.
 
 ## Dependencies
@@ -11,17 +13,17 @@ Requires the [ContentRedirectionModule](https://github.com/wiiu-env/ContentRedir
 ## Installation of the plugin
 (`[ENVIRONMENT]` is a placeholder for the actual environment name.)
 
-1. Copy the file `sdcafiine.wps` into `sd:/wiiu/environments/[ENVIRONMENT]/plugins`.  
+1. Copy the file `sdcafiine_plus.wps` into `sd:/wiiu/environments/[ENVIRONMENT]/plugins`.  
 2. Requires the [WiiUPluginLoaderBackend](https://github.com/wiiu-env/WiiUPluginLoaderBackend) in `sd:/wiiu/environments/[ENVIRONMENT]/modules`.
 3. Requires the [ContentRedirectionModule](https://github.com/wiiu-env/ContentRedirectionModule) in `sd:/wiiu/environments/[ENVIRONMENT]/modules`.
 
 ## Usage
-**The path of SDCafiine has changed to `sd:/wiiu/sdcafiine`**
+**The path of SDCafiine Plus has changed to `sd:/wiiu/sdcafiine_plus`**
 
 Via the plugin config menu (press L, DPAD Down and Minus on the gamepad) you can configure the plugin. The available options are the following:
 - **Settings**: 
-  - Enable SDCafiine:
-    - With this option you can globally enable/disable SDCafiine. If you're currently running a game you need to restart it before this option has an effect.
+  - Enable SDCafiine Plus:
+    - With this option you can globally enable/disable SDCafiine Plus. If you're currently running a game you need to restart it before this option has an effect.
 - **Advanced settings**:
   - Auto apply the modpack if only one modpack exists:
     - Skip the modpack selection screen if the current title only has one modpack to choose from. To boot the game without mods, you need to press X while "Preparing modpack" is shown on the screen.
@@ -32,10 +34,14 @@ Via the plugin config menu (press L, DPAD Down and Minus on the gamepad) you can
 Before the mods can be loaded, they need to be copied to a SD card. 
 **In the following "root:/" is corresponding to the root of your SD card**. The basic filepath structure is this:
 
+**The save directory will be automaticly generated. You do not need to manully create it.**
+
 ```
 root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/content/  <-- for game files. Maps to /vol/content/
 root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/aoc/  <-- for DLC files. Maps to /vol/aoc/
+root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/save/  <-- for save files. Maps to /vol/save/
 ```
+
 Replace the following:
 - "[TITLEID]" need to be replaced the TitleID of the games that should be modded. A list of title ids can be found [here](http://wiiubrew.org/w/index.php?title=Title_database#00050000:_eShop_and_disc_titles) (without the "-"). Example for SSBU "0005000010145000". Make sure to use the ID of the fullgame and not the update title ID. 
 - "[MODPACK]" name of the modpack.
