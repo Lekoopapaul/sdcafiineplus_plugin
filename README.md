@@ -34,7 +34,7 @@ Via the plugin config menu (press L, DPAD Down and Minus on the gamepad) you can
 Before the mods can be loaded, they need to be copied to a SD card. 
 **In the following "root:/" is corresponding to the root of your SD card**. The basic filepath structure is this:
 
-**The save directory will be automaticly generated. You do not need to manully create it.**
+**The save directory and its Content will be automaticly generated. You do not need to manully create it.**
 
 ```
 root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/content/  <-- for game files. Maps to /vol/content/
