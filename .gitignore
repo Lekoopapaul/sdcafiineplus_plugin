@@ -10,3 +10,6 @@ cmake-build-debug/
 *.rpx
 *.txt
 *.zip
+*.sh
+.vscode/
+*.lst

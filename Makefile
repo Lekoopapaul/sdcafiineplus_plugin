@@ -26,7 +26,7 @@ SOURCES		:=	src \
                 src/fs \
                 src/utils
 DATA		:=	data
-INCLUDES	:=	src
+INCLUDES	:=	includes
 
 #-------------------------------------------------------------------------------
 # options for code generation
