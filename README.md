@@ -37,9 +37,9 @@ Before the mods can be loaded, they need to be copied to a SD card.
 **The save directory and its Content will be automaticly generated. You do not need to manully create it.**
 
 ```
-root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/content/  <-- for game files. Maps to /vol/content/
-root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/aoc/  <-- for DLC files. Maps to /vol/aoc/
-root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/save/  <-- for save files. Maps to /vol/save/
+root:/wiiu/sdcafiine_plus/[TITLEID]/[MODPACK]/content/  <-- for game+update files. Maps to /vol/content/
+root:/wiiu/sdcafiine_plus/[TITLEID]/[MODPACK]/aoc/  <-- for DLC files. Maps to /vol/aoc/
+root:/wiiu/sdcafiine_plus/[TITLEID]/[MODPACK]/save/  <-- for save files. Maps to /vol/save/
 ```
 
 Replace the following:
@@ -48,21 +48,21 @@ Replace the following:
 
 Example path for the EUR version of SuperSmashBros for Wii U:
 ```
-root:/wiiu/sdcafiine/0005000010145000/SpecialChars/content/  <-- for game files. Maps to /vol/content/
-root:/wiiu/sdcafiine/0005000010145000/SpecialChars/aoc/  <-- for DLC files. Maps to /vol/aoc/
+root:/wiiu/sdcafiine_plus/0005000010145000/SpecialChars/content/  <-- for game files. Maps to /vol/content/
+root:/wiiu/sdcafiine_plus/0005000010145000/SpecialChars/aoc/  <-- for DLC files. Maps to /vol/aoc/
 ```
 
 For replacing the file /vol/content/movie/intro.mp4, put a modified file into:
 ```
-root:/wiiu/sdcafiine/0005000010145000/SpecialChars/content/movie/intro.mp4
+root:/wiiu/sdcafiine_plus/0005000010145000/SpecialChars/content/movie/intro.mp4
 ```
 
 ### Handling multiple mod packs
 SDCafiine supports multiple different mods for a single game on the same SD card. Each modpack has its own subdirectory.
 Example:
 ```
-sd:/wiiu/sdcafiine/0005000010145000/ModPack1/content/
-sd:/wiiu/sdcafiine/0005000010145000/ModPack2/content/
+sd:/wiiu/sdcafiine_plus/0005000010145000/ModPack1/content/
+sd:/wiiu/sdcafiine_plus/0005000010145000/ModPack2/content/
 ```
 ### "Delete" files via SDCafiine
 If a game should not see or access a file anymore, it's possible to "delete"/"hide" it from the game without actually deleting it. 
@@ -70,7 +70,7 @@ The process is similar to redirecting a file. But instead of creating a replacem
 
 If you want to stop a game from accessing `/vol/content/assets/tree.bin` you need to create this file in your modpack.
 ```
-root:/wiiu/sdcafiine/[TITLEID]/[MODPACK]/content/assets/.deleted_tree.bin
+root:/wiiu/sdcafiine_plus/[TITLEID]/[MODPACK]/content/assets/.deleted_tree.bin
 ```
 
 ## Buildflags
